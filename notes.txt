@@ -37,6 +37,42 @@ get_installed_apps
 
 
 -=====
+baca_sms
+get_contact
+get_installed_apps	Dapatkan daftar aplikasi terinstal
+start_kiosk_mode	Aktifkan lock task mode (hanya aplikasi kamu yang bisa dijalankan)
+exit_kiosk_mode	Keluar dari lock task mode
+launch_app	Jalankan aplikasi tertentu berdasarkan package name
+
+📸 Monitoring & Tracking
+Command	Deskripsi
+take_photo	Ambil foto (dengan opsi camera: front/back, upload_url)
+get_location	Kirim lokasi terakhir device (dengan GPS)
+send_app_usage	Kirim statistik penggunaan aplikasi dalam 24 jam terakhir
+record_audio	Rekam audio dari mic, simpan dan upload
+screenshot	Ambil screenshot (⚠️ butuh permission khusus dan akses root/adb)
+
+🔔 Notifikasi & Komunikasi
+Command	Deskripsi
+show_notification	Tampilkan notifikasi ke user (title + message)
+show_toast	Tampilkan toast singkat (pop-up bawah layar)
+send_sms	Kirim SMS ke nomor tertentu (⚠️ perlu permission SEND_SMS)
+
+🖥 System Control & Info
+Command	Deskripsi
+reboot	Reboot device (⚠️ hanya bisa dilakukan jika rooted / system-level)
+shutdown	Matikan device (⚠️ tidak didukung di semua Android)
+get_device_info	Kirim info: model, android version, battery level, dll
+vibrate_device	Getarkan device untuk durasi tertentu
+play_alarm	Mainkan suara alarm (bisa pakai MediaPlayer)
+
+🧠 Advanced (Jika Device Owner atau Rooted)
+Command	Deskripsi
+install_app	Install APK diam-diam (silent install, butuh device owner atau root)
+uninstall_app	Uninstall paksa aplikasi lain (butuh device owner atau root)
+set_wifi_state	Aktifkan/nonaktifkan Wi-Fi
+set_mobile_data	Aktifkan/nonaktifkan mobile data
+enable_airplane_mode	Aktifkan mode pesawat (tidak bisa dilakukan via API biasa sejak Android 4.2)
 2. 🟢 lock_screen
 Deskripsi: Langsung kunci layar anak
 
@@ -92,5 +128,14 @@ command
     "params": {
         "camera": "front", // atau "back"
         "upload_url": "http://20.20.20.55:8080/api/device/upload_photo?device_id=98fbff301bd1c6ea"
+    }
+}
+
+# show warning ui 
+{
+    "device_id": "98fbff301bd1c6ea",
+    "command": "show_warning_ui",
+    "params": {
+        "message": "Sudah waktunya istirahat. Layar akan dikunci dalam 10 detik."
     }
 }
