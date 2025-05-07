@@ -1,0 +1,96 @@
+. Monitoring & Pelaporan
+✅ Monitor aplikasi yang digunakan + durasi per hari
+ Kirim lokasi device secara periodik (real-time tracking)
+ Simpan histori lokasi 24 jam terakhir
+ Ambil status baterai & koneksi internet
+ Kirim notifikasi jika anak membuka aplikasi tertentu
+get_installed_apps
+
+🧩 2. Kontrol Jarak Jauh via Backend
+ Lock layar anak (tampilkan overlay “device terkunci”)
+ Blokir aplikasi tertentu (dengan AccessibilityService)
+ Kirim peringatan ke layar anak (“waktu habis”, “istirahat dulu”)
+ Shutdown / restart device (butuh root atau akses khusus)
+ Kirim suara alarm dari backend
+ Ambil foto dari kamera depan atau belakang (dengan permission)
+ Screenshot otomatis (opsional, butuh root)
+ Kirim command bebas via backend
+
+🧩 3. Aktivitas Otomatis Berdasarkan Waktu
+ Atur waktu tidur (lock device otomatis jam 22.00 misalnya)
+ Jadwal penggunaan aplikasi tertentu (boleh buka TikTok hanya jam 17.00–18.00)
+ Notifikasi pengingat: belajar, tidur, sholat, dll.
+
+🧩 4. Pengamanan & Proteksi
+ Blokir install/uninstall aplikasi (monitor dengan BroadcastReceiver)
+ Cegah akses ke Settings (bisa override lewat Accessibility)
+ Cegah matikan app lewat recent apps
+ Lock aplikasi tertentu dengan PIN
+ Sembunyikan ikon aplikasi (stealth mode)
+
+🧩 5. Lain-lain
+ Auto-start saat boot
+ Jalankan di background tanpa mudah dimatikan
+ Enkripsi dan upload data aman ke backend Go
+ Sistem command & response melalui polling atau FCM
+ Dashboard web parent untuk kontrol dan monitoring semua device
+
+
+-=====
+2. 🟢 lock_screen
+Deskripsi: Langsung kunci layar anak
+
+Syarat: Jadi device admin app (DevicePolicyManager)
+
+Catatan: Butuh approval admin oleh user saat install
+
+3. 🔴 block_app
+Deskripsi: Blokir aplikasi tertentu (misalnya TikTok, IG)
+
+Metode:
+
+Jalankan polling: jika app dibuka → langsung kill app
+
+Butuh PACKAGE_USAGE_STATS + USAGE_ACCESS
+
+4. 🟣 send_alert_sound
+Deskripsi: Putar suara peringatan keras walaupun silent mode
+
+Syarat: VIBRATE dan MODIFY_AUDIO_SETTINGS + FOREGROUND_SERVICE
+
+5. 🔵 get_installed_apps
+Deskripsi: Kirim daftar aplikasi yang terinstall
+
+Metode: Pakai PackageManager.getInstalledApplications()
+
+6. 🟤 reboot_device (khusus rooted / enterprise)
+Deskripsi: Paksa restart device
+
+Butuh: Akses root atau profile owner di Android Enterprise
+
+7. 🟠 custom_http_post
+Deskripsi: Device melakukan HTTP POST ke URL + body tertentu (webhook support, push data)
+
+Gunakan untuk: integrasi ke sistem lain (IoT, Webhook, dll)
+
+
+command
+#Kirim Notifikasi
+{
+    "device_id": "98fbff301bd1c6ea",
+    "command": "show_notification",
+    "params": {
+        "title": "Hai",
+        "message": "Sudah waktunya istirahat"
+    }
+}
+
+# take foto 
+{
+    "device_id": "98fbff301bd1c6ea",
+    "command": "take_photo",
+    "params": {
+        "camera": "front", // atau "back"
+        "upload_url": "http://20.20.20.55:8080/api/device/upload_photo?device_id=98fbff301bd1c6ea"
+    }
+}
