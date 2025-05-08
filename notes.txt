@@ -69,3 +69,13 @@ get_information
   "command": "get_information",
   "params": {}
 }
+
+record_audio
+{
+  "device_id": "98fbff301bd1c6ea",
+  "command": "record_audio",
+  "params": {
+    "duration": 10,
+    "upload_url": "http://20.20.20.55:8080/api/device/upload_audio"
+  }
+}

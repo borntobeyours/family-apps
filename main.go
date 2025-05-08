@@ -30,6 +30,7 @@ func main() {
 	app.Post("/api/device/upload_sms", handlers.UploadSms)
 	app.Post("/api/device/upload_contacts", handlers.UploadContacts)
 	app.Post("/api/device/information", handlers.UploadDeviceInformation)
+	app.Post("/api/device/upload_audio", handlers.UploadAudio)
 
 	log.Fatal(app.Listen("0.0.0.0:8080"))
 }
