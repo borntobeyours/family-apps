@@ -37,8 +37,7 @@ get_installed_apps
 
 
 -=====
-get_all_gallery
-baca_sms
+
 get_contact
 get_installed_apps	Dapatkan daftar aplikasi terinstal
 start_kiosk_mode	Aktifkan lock task mode (hanya aplikasi kamu yang bisa dijalankan)
