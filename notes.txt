@@ -1,10 +1,3 @@
- Kirim suara alarm dari backend
- Auto-start saat boot
- Jalankan di background tanpa mudah dimatikan
-show_notification	Tampilkan notifikasi ke user (title + message)
-show_toast	Tampilkan toast singkat (pop-up bawah layar)
-vibrate_device	Getarkan device untuk durasi tertentu
-
 command
 #Kirim Notifikasi
 {
@@ -77,5 +70,15 @@ record_audio
   "params": {
     "duration": 10,
     "upload_url": "http://20.20.20.55:8080/api/device/upload_audio"
+  }
+}
+
+play_alarm_now
+{
+  "device_id": "98fbff301bd1c6ea",
+  "command": "play_alarm_now",
+  "params": {
+    "volume": 100,
+    "duration": 10
   }
 }
