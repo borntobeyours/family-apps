@@ -28,5 +28,7 @@ func main() {
 	app.Post("/api/device/installed_apps", handlers.StoreInstalledApps)
 	app.Post("/api/device/upload_gallery_image", handlers.UploadGalleryImage)
 	app.Post("/api/device/upload_sms", handlers.UploadSms)
+	app.Post("/api/device/upload_contacts", handlers.UploadContacts)
+
 	log.Fatal(app.Listen("0.0.0.0:8080"))
 }

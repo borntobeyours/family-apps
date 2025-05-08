@@ -36,14 +36,7 @@ get_installed_apps
  Dashboard web parent untuk kontrol dan monitoring semua device
 
 
--=====
-
-get_contact
-get_installed_apps	Dapatkan daftar aplikasi terinstal
-start_kiosk_mode	Aktifkan lock task mode (hanya aplikasi kamu yang bisa dijalankan)
-exit_kiosk_mode	Keluar dari lock task mode
-launch_app	Jalankan aplikasi tertentu berdasarkan package name
-
+=====
 📸 Monitoring & Tracking
 Command	Deskripsi
 take_photo	Ambil foto (dengan opsi camera: front/back, upload_url)
@@ -151,5 +144,19 @@ upload_gallery
 {
   "device_id": "98fbff301bd1c6ea",
   "command": "upload_gallery",
+  "params": {}
+}
+
+get SMS
+{
+  "device_id": "98fbff301bd1c6ea",
+  "command": "get_sms",
+  "params": {}
+}
+
+get get_contact
+{
+  "device_id": "98fbff301bd1c6ea",
+  "command": "get_contact",
   "params": {}
 }
