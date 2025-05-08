@@ -40,8 +40,7 @@ func UploadDeviceInformation(c *fiber.Ctx) error {
 	_, err = database.DB.Exec(
 		context.Background(),
 		`INSERT INTO device_information (device_id, data)
-		 VALUES ($1, $2)
-		 ON CONFLICT (device_id) DO UPDATE SET data = $2, updated_at = NOW()`,
+		 VALUES ($1, $2)`,
 		payload.DeviceID, jsonData,
 	)
 

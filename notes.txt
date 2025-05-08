@@ -1,7 +1,6 @@
  Kirim suara alarm dari backend
  Auto-start saat boot
  Jalankan di background tanpa mudah dimatikan
-record_audio	Rekam audio dari mic, simpan dan upload
 show_notification	Tampilkan notifikasi ke user (title + message)
 show_toast	Tampilkan toast singkat (pop-up bawah layar)
 vibrate_device	Getarkan device untuk durasi tertentu
